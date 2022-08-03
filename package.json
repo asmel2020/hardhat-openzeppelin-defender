@@ -1,6 +1,6 @@
 {
   "name": "hardhat-openzeppelin-defender",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hardhat plugin openzeppelin defender",
   "author": "Danny Jesus Gonzalez Galicia",
   "license": "MIT",
