@@ -7,26 +7,35 @@ import AdminClients from "./OpenzeppelinDefender/adminClient";
 // extensions in your npm package's types file.
 import "./type-extensions";
 import AutotaskClients from "./OpenzeppelinDefender/AutotaskClient";
-import RelayClients from './OpenzeppelinDefender/RelayClient';
+import RelayClients from "./OpenzeppelinDefender/RelayClient";
 import SentinelClients from "./OpenzeppelinDefender/SentinelClient";
+import Utils from "./OpenzeppelinDefender/Utils";
 
 extendConfig(
-  (config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {
-   
-  }
+  (config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {}
 );
 
 extendEnvironment((hre) => {
-  hre.OpenzeppelinDefender = lazyObject(() =>{
-    const AdminClient=new AdminClients(hre.config.OpenzeppelinDefenderCredential);
-    const AutoTaskClint=new AutotaskClients(hre.config.OpenzeppelinDefenderCredential);
-    const RelayClient=new  RelayClients(hre.config.OpenzeppelinDefenderCredential)
-    const SentinelClient = new SentinelClients(hre.config.OpenzeppelinDefenderCredential)
-    return{
+  hre.OpenzeppelinDefender = lazyObject(() => {
+    const AdminClient = new AdminClients(
+      hre.config.OpenzeppelinDefenderCredential
+    );
+    const AutoTaskClint = new AutotaskClients(
+      hre.config.OpenzeppelinDefenderCredential
+    );
+    const RelayClient = new RelayClients(
+      hre.config.OpenzeppelinDefenderCredential
+    );
+    const SentinelClient = new SentinelClients(
+      hre.config.OpenzeppelinDefenderCredential
+    );
+    const Util = new Utils();
+    return {
       AdminClient,
       AutoTaskClint,
       RelayClient,
-      SentinelClient
-    }
+      SentinelClient,
+      Utils: Util,
+    };
   });
 });
