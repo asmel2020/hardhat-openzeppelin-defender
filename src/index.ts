@@ -17,7 +17,6 @@ extendConfig(
 );
 
 extendEnvironment((hre) => {
-  console.log(hre.config.paths.root)
   hre.OpenzeppelinDefender = lazyObject(() =>{
     const AdminClient=new AdminClients(hre.config.OpenzeppelinDefenderCredential);
     const AutoTaskClint=new AutotaskClients(hre.config.OpenzeppelinDefenderCredential);
