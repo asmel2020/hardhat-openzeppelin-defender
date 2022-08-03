@@ -7,25 +7,25 @@ plugin created with the purpose of efficiently integrating openzeppelin defender
 ## Installation
 
 ```bash
-yarn add --dev hardhat-abi-exporter
+yarn add --dev hardhat-openzeppelin-defender
 ```
 
 or
 
 ```bash
-npm install --save hardhat-abi-exporter
+npm install --save hardhat-openzeppelin-defender
 ```
 
 Import the plugin in your `hardhat.config.js`:
 
 ```js
-require("hardhat-abi-exporter");
+require("hardhat-openzeppelin-defender");
 ```
 
 Or if you are using TypeScript, in your `hardhat.config.ts`:
 
 ```ts
-import "hardhat-abi-exporter";
+import "hardhat-openzeppelin-defender";
 ```
 
 ## Environment extensions
