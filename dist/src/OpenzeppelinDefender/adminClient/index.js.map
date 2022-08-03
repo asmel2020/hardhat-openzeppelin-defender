@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/OpenzeppelinDefender/adminClient/index.ts"],"names":[],"mappings":";;AAAA,iEAA+D;AAG/D,MAAqB,YAAY;IAE/B,YAAY,gBAAiC;QAC3C,IAAI,CAAC,MAAM,GAAG,IAAI,mCAAW,CAAC,gBAAgB,CAAC,CAAC;IAClD,CAAC;IACM,KAAK,CAAC,WAAW,CAAC,QAAiB;QACxC,OAAO,MAAM,IAAI,CAAC,MAAM,CAAC,WAAW,CAAC,QAAQ,CAAC,CAAC;IACjD,CAAC;CACF;AARD,+BAQC"}
