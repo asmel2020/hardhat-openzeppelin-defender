@@ -1,6 +1,6 @@
 # hardhat-openzeppelin-defender
 
-## What
+## Task
 
 plugin created with the purpose of efficiently integrating openzeppelin defender modules with hardhat
 
