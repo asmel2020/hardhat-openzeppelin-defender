@@ -9,7 +9,7 @@ export default class AdminClients {
     this.client = new AdminClient(credentialClient);
   }
 
-  public async addContract(Contract:Contract) {
-    return await this.client.addContract(Contract);
+  public addContract(Contract:Contract) {
+    return this.client.addContract(Contract);
   }
 }

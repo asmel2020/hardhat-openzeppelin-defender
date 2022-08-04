@@ -4,8 +4,9 @@
 import "hardhat/types/config";
 import "hardhat/types/runtime";
 
-import AdminClients from "./OpenzeppelinDefender/adminClient";
+import AdminClients from "./OpenzeppelinDefender/AdminClient";
 import AutotaskClients from "./OpenzeppelinDefender/AutotaskClient";
+import KvstoreClients from "./OpenzeppelinDefender/KvstoreClient";
 import RelayClients from "./OpenzeppelinDefender/RelayClient";
 import SentinelClients from "./OpenzeppelinDefender/SentinelClient";
 import Utils from "./OpenzeppelinDefender/Utils";
@@ -43,6 +44,7 @@ declare module "hardhat/types/runtime" {
       AutoTaskClint:AutotaskClients;
       RelayClient:RelayClients;
       SentinelClient:SentinelClients,
+      KvstoreClient:KvstoreClients,
       Utils:Utils
     }
   }

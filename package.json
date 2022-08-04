@@ -1,6 +1,6 @@
 {
   "name": "hardhat-openzeppelin-defender",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Hardhat plugin openzeppelin defender",
   "author": "Danny Jesus Gonzalez Galicia",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^8.10.38",
     "chai": "^4.2.0",
+    "dotenv": "^16.0.1",
     "hardhat": "^2.0.0",
     "mocha": "^7.1.2",
     "prettier": "2.0.5",
@@ -53,8 +54,8 @@
   "dependencies": {
     "defender-admin-client": "^1.25.0",
     "defender-autotask-client": "^1.25.0",
+    "defender-kvstore-client": "^1.25.0",
     "defender-relay-client": "^1.26.1",
-    "defender-sentinel-client": "^1.26.0",
-    "dotenv": "^16.0.1"
+    "defender-sentinel-client": "^1.26.0"
   }
 }
