@@ -24,7 +24,8 @@
     "test": "mocha --exit --recursive 'test/**/*.test.ts'",
     "build": "tsc",
     "watch": "tsc -w",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "update:dependencies": "yarn add defender-admin-clien && yarn add defender-autotask-client && yarn add defender-kvstore-client && yarn add defender-sentinel-client && yarn add defender-relay-client"
   },
   "files": [
     "dist/src/",
@@ -52,10 +53,11 @@
     "hardhat": "^2.0.0"
   },
   "dependencies": {
-    "defender-admin-client": "^1.25.0",
-    "defender-autotask-client": "^1.25.0",
-    "defender-kvstore-client": "^1.25.0",
-    "defender-relay-client": "^1.26.1",
-    "defender-sentinel-client": "^1.26.0"
+    "defender-admin-client": "^1.27.0",
+    "defender-autotask-client": "^1.27.0",
+    "defender-autotask-utils": "^1.25.0",
+    "defender-kvstore-client": "^1.27.0",
+    "defender-relay-client": "^1.27.0",
+    "defender-sentinel-client": "^1.27.0"
   }
 }
