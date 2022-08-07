@@ -1,13 +1,18 @@
-import { utils } from 'ethers';
+import {Interface} from '@ethersproject/abi';
 interface AbiInterfaceParams{
-    abiInterface:utils.Interface;
+    abiInterface:Interface;
     name:string;
     type:'function' | 'event';
   }
-  
+  interface eventSignature{
+    eventSignature:string
+  }
+  interface functionSignature{
+    functionSignature:String
+  }
   interface AbiInterfaceParamsResponse{
     name:string;
-    signature:{};
+    signature:eventSignature | functionSignature;
     inputs:any[];
     fragment:string;
   }

@@ -58,7 +58,6 @@
     "defender-autotask-utils": "^1.25.0",
     "defender-kvstore-client": "^1.27.1",
     "defender-relay-client": "^1.27.1",
-    "defender-sentinel-client": "^1.27.1",
-    "ethers": "^5.6.9"
+    "defender-sentinel-client": "^1.27.1"
   }
 }

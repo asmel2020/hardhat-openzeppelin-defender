@@ -19,34 +19,27 @@ extendConfig(
 
 extendEnvironment((hre) => {
   hre.OpenzeppelinDefender = lazyObject(() => {
-    
-    const AdminClient = new AdminClients(
-      hre.config.OpenzeppelinDefenderCredential
-    );
+    const Credential=hre.config.OpenzeppelinDefenderCredential
 
-    const AutoTaskClint = new AutotaskClients(
-      hre.config.OpenzeppelinDefenderCredential
-    );
+    const AdminClient = new AdminClients(Credential);
 
-    const RelayClient = new RelayClients(
-      hre.config.OpenzeppelinDefenderCredential
-    );
+    const AutoTaskClint = new AutotaskClients(Credential);
+
+    const RelayClient = new RelayClients(Credential);
     
-    const SentinelClient = new SentinelClients(
-      hre.config.OpenzeppelinDefenderCredential
-    );
+    const SentinelClient = new SentinelClients(Credential);
 
     const KvstoreClient = new KvstoreClients();
 
     const Util = new Utils();
-
+    
     return {
       AdminClient,
       AutoTaskClint,
       RelayClient,
       SentinelClient,
       KvstoreClient,
-      Utils: Util,
+      Utils: Util
     };
   });
 });

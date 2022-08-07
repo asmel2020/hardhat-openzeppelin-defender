@@ -1,6 +1,8 @@
-import { SentinelClient,CreateSentinelRequest,} from 'defender-sentinel-client';
+import { SentinelClient,CreateSentinelRequest} from 'defender-sentinel-client';
+
 import { credentialClient } from '../models/type';
-import { NotificationRequest,CreateNotificationRequest,UpdateNotificationRequest} from './models/types';
+import { CreateNotificationRequest, NotificationRequest, UpdateNotificationRequest,UpdateSentinelRequest} from './models/types';
+
 
 export default class SentinelClients {
 
@@ -41,8 +43,8 @@ export default class SentinelClients {
     return this.client.get(sentinelId);
   }
 
-  public update(sentinelId: string,UpdateSubscriberRequest:any) {
-    return this.client.update(sentinelId,UpdateSubscriberRequest);
+  public update(sentinelId: string,UpdateSentinelRequest:UpdateSentinelRequest) {
+    return this.client.update(sentinelId,UpdateSentinelRequest);
   }
 
   public delete(sentinelId: string) {

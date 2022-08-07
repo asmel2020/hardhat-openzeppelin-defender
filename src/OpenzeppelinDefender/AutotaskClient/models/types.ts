@@ -1,38 +1,24 @@
-interface CreateAutotaskRequest {
-    name: string;
-    encodedZippedCode: string;
-    relayerId?: string;
-    trigger: {
-      type: 'schedule' | 'webhook',
-      frequencyMinutes?: number,
-      cron?: string,
-    };
-    paused: boolean;
-  }
-
-  interface UpdateAutotaskRequest {
-    autotaskId: string;
-    name: string;
-    encodedZippedCode?: string;
-    relayerId?: string;
-    trigger: {
-      type: 'schedule' | 'webhook',
-      frequencyMinutes?: number,
-      cron?: string,
-    };
-    paused: boolean;
-  }
-  type SourceFiles = {
-    'index.js': string;
-    [name: string]: string;
+import {CreateAutotaskRequest,UpdateAutotaskRequest,Autotask } from "defender-autotask-client/lib/models/autotask";
+import { AutotaskListResponse,AutotaskDeleteResponse } from "defender-autotask-client/lib/models/response";
+import { AutotaskRunBase,AutotaskRunListResponse,AutotaskRunResponse } from "defender-autotask-client/lib/models/autotask-run.res";
+declare type SourceFiles = {
+  'index.js': string;
+  [name: string]: string;
 };
 
-type data = {
-  [key: string]: any;
+declare type data={
+    [key: string]: any;
 }
+
 export{
+    AutotaskListResponse,
     CreateAutotaskRequest,
     UpdateAutotaskRequest,
+    AutotaskDeleteResponse,
+    Autotask,
+    AutotaskRunBase,
+    AutotaskRunListResponse,
+    AutotaskRunResponse,
     SourceFiles,
     data
 }

@@ -1,5 +1,8 @@
 import { AdminClient, Contract,  } from 'defender-admin-client';
+
 import { credentialClient } from '../models/type';
+
+import { PauseParams, UpgradeParams,CreateProposalRequest,ProposalResponseWithUrl } from './models/types';
 
 export default class AdminClients {
   
@@ -9,22 +12,23 @@ export default class AdminClients {
     this.client = new AdminClient(credentialClient);
   }
 
-  public addContract(Contract:Contract) {
+  public addContract(Contract:Contract):Promise<Contract> {
     return this.client.addContract(Contract);
   }
-  public createProposal(ProposalResponseWithUrl:any) {
-    return this.client.createProposal(ProposalResponseWithUrl);
+
+  public createProposal(CreateProposalRequest:CreateProposalRequest):Promise<ProposalResponseWithUrl> {
+    return this.client.createProposal(CreateProposalRequest);
   }
 
-  public proposeUpgrade(UpgradeParams:any,contract:any) {
+  public proposeUpgrade(UpgradeParams:UpgradeParams,contract:CreateProposalRequest['contract']):Promise<ProposalResponseWithUrl> {
     return this.client.proposeUpgrade(UpgradeParams,contract);
   }
 
-  public proposeUnpause(PauseParams:any,contract:any) {
+  public proposeUnpause(PauseParams:PauseParams,contract:CreateProposalRequest['contract']):Promise<ProposalResponseWithUrl>{
     return this.client.proposeUnpause(PauseParams,contract);
   }
 
-  public listProposals(PauseParams:any,contract:any) {
+  public listProposals():Promise<ProposalResponseWithUrl[]> {
     return this.client.listProposals();
   }
 }

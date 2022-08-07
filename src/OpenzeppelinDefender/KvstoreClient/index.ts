@@ -9,15 +9,15 @@ export default class KvstoreClients {
     this.client = new KeyValueStoreClient({ path: './secret.json'})
   }
 
-  public async put(key: string, value: string) {
+  public put(key: string, value: string): Promise<void> {
     return this.client.put(key,value)
   }
   
-  public async get(key: string) {
+  public get(key: string): Promise<string | undefined> {
     return this.client.get(key)
   }
 
-  public async del(key: string) {
+  public del(key: string): Promise<void> {
     return this.client.del(key)
   }
 }

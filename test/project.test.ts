@@ -5,12 +5,10 @@ describe("Integration tests examples", function () {
     useEnvironment("hardhat-project");
 
     it("Should add the example field",async function () {
-     
-       
-       console.log(await this.hre.OpenzeppelinDefender.AutoTaskClint.list())
+      console.log(this.hre.OpenzeppelinDefender.Utils.fromChainId(97))
     });
 
-   
+  
   });
 
  

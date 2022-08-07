@@ -10,16 +10,11 @@ import KvstoreClients from "./OpenzeppelinDefender/KvstoreClient";
 import RelayClients from "./OpenzeppelinDefender/RelayClient";
 import SentinelClients from "./OpenzeppelinDefender/SentinelClient";
 import Utils from "./OpenzeppelinDefender/Utils";
-
 interface OpenzeppelinDefenderCredential {
   apiKey:string;
   apiSecret:string;
 }
 declare module "hardhat/types/config" {
-  // This is an example of an extension to one of the Hardhat config values.
-
-  // We extend the UserConfig type, which represents the config as written
-  // by the users. Things are normally optional here.
   interface HardhatUserConfig {
     OpenzeppelinDefenderCredential?:OpenzeppelinDefenderCredential
   }
@@ -36,8 +31,6 @@ declare module "hardhat/types/config" {
 }
 
 declare module "hardhat/types/runtime" {
-  // This is an example of an extension to the Hardhat Runtime Environment.
-  // This new field will be available in tasks' actions, scripts, and tests.
   export interface HardhatRuntimeEnvironment {
     OpenzeppelinDefender:{
       AdminClient:AdminClients;
@@ -45,7 +38,7 @@ declare module "hardhat/types/runtime" {
       RelayClient:RelayClients;
       SentinelClient:SentinelClients,
       KvstoreClient:KvstoreClients,
-      Utils:Utils
+      Utils:Utils,
     }
   }
 }

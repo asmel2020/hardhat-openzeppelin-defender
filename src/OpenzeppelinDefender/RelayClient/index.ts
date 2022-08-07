@@ -1,7 +1,8 @@
-import { RelayClient,CreateRelayerRequest,UpdateRelayerRequest } from 'defender-relay-client';
-import { credentialClient } from "../../types";
+import { RelayClient} from 'defender-relay-client';
 
+import { credentialClient } from '../models/type'
 
+import {UpdateRelayerRequest,CreateRelayerRequest} from "./models/types"
 
 export default class RelayClients {
   
