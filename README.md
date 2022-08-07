@@ -51,21 +51,21 @@ import { OpenzeppelinDefender } from "hardhat";
 
 # Usage
 main samples [repository](https://github.com/asmel2020/hardhat-openzeppelin-defender-example)
-### Utils
-##### fromChainId
+## Utils
+### fromChainId
 check and get the name of the network by its chainId
 ```ts
   OpenzeppelinDefender.Utils.fromChainId(97) // bsctest
 ```
 
-##### AbiJsonString
+### AbiJsonString
 extract the abi in string format from the contract interface
 
 ```ts
   OpenzeppelinDefender.Utils.AbiJsonString(abiInterface)
 ```
 
-##### getAbiInterfaceParams
+### getAbiInterfaceParams
 extracts the parameters of a function or event by using its abiInterface
 
 **abiInterface** : smart contract interface
@@ -117,8 +117,8 @@ const result = OpenzeppelinDefender.Utils.getAbiInterfaceParams(params);
   fragment: 'Transfer(address,address,uint256)'
 }*/
 ```
-### AdminClient
-#### Example 1
+## AdminClient
+### Example 1
 MyToken smart contract deployment and add to openzeppelin admin module
 ```JS
 import { ethers,OpenzeppelinDefender } from "hardhat";
@@ -152,7 +152,7 @@ async function main() {
   await OpenzeppelinDefender.AdminClient.addContract(option);
 }
 ```
-#### Example 2
+### Example 2
 Add MyToken to module admin and create a proposal
 
 ```JS
@@ -206,8 +206,8 @@ async function main() {
 ```
 to know more methods of the [AdminClient](https://www.npmjs.com/package/defender-admin-client)
 
-### RelayClient
-#### Example 1
+## RelayClient
+### Example 1
 Creation of a relay and use of its address so that it assumes the MINTER_ROLE in the MyNft contract
 
 ```JS
@@ -249,9 +249,9 @@ async function main() {
 
 to know more methods of the [RelayClient](https://www.npmjs.com/package/defender-relay-client)
 
-### AutoTaskClint
+## AutoTaskClint
 
-#### Example 1
+### Example 1
 creating an autoTask
 
 ```JS
@@ -274,9 +274,9 @@ async function main() {
 
 to know more methods of the [AutoTaskClint](https://www.npmjs.com/package/defender-autotask-client)
 
-### SentinelClient
+## SentinelClient
 
-#### Example 1
+### Example 1
 Creating a sentinel, to track all Transfer events of the Mytoken smart contract and assigning an autoTaskTrigger via its autoTaskId to the sentinel
 
 ```JS
