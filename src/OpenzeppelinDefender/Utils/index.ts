@@ -22,16 +22,19 @@ export default class Utils {
     };
 
     const functionParams = {
-      functionGet: "getEvent",
+      functionGet: "getFunction",
       consult: "functions",
       signatures: "functionSignature",
     };
 
-    let AbiInterfaceParamsResponse:any={};
+    let AbiInterfaceParamsResponse:any={
+      name,
+      signature:{}
+    };
 
     const { functionGet, consult, signatures } =
       type === "event" ? eventParams : functionParams;
-
+      
     AbiInterfaceParamsResponse.inputs = abiInterface[functionGet](name).inputs.map(
       ({ name, type }: any) => {
         return { name, type };
