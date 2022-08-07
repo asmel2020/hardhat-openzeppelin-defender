@@ -1,6 +1,9 @@
 // We load the plugin here.
 import { HardhatUserConfig } from "hardhat/types";
+
 import * as dotenv from "dotenv";
+import "@nomiclabs/hardhat-ethers";
+//import "@nomicfoundation/hardhat-toolbox";
 import "../../../src/index";
 dotenv.config();
 
