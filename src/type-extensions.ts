@@ -4,12 +4,14 @@
 import "hardhat/types/config";
 import "hardhat/types/runtime";
 
-import AdminClients from "./OpenzeppelinDefender/AdminClient";
-import AutotaskClients from "./OpenzeppelinDefender/AutotaskClient";
-import KvstoreClients from "./OpenzeppelinDefender/KvstoreClient";
-import RelayClients from "./OpenzeppelinDefender/RelayClient";
-import SentinelClients from "./OpenzeppelinDefender/SentinelClient";
+
 import Utils from "./OpenzeppelinDefender/Utils";
+import {RelayClient} from 'defender-relay-client';
+import {AdminClient} from 'defender-admin-client';
+import {AutotaskClient} from "defender-autotask-client";
+import { KeyValueStoreClient } from 'defender-kvstore-client';
+import { SentinelClient} from 'defender-sentinel-client';
+import RelaySigners from './OpenzeppelinDefender/RelaySigners';
 interface OpenzeppelinDefenderCredential {
   apiKey:string;
   apiSecret:string;
@@ -33,11 +35,12 @@ declare module "hardhat/types/config" {
 declare module "hardhat/types/runtime" {
   export interface HardhatRuntimeEnvironment {
     OpenzeppelinDefender:{
-      AdminClient:AdminClients;
-      AutoTaskClint:AutotaskClients;
-      RelayClient:RelayClients;
-      SentinelClient:SentinelClients,
-      KvstoreClient:KvstoreClients,
+      AdminClient:AdminClient;
+      AutotaskClient:AutotaskClient;
+      RelayClient:RelayClient;
+      SentinelClient:SentinelClient,
+      KeyValueStoreClient:KeyValueStoreClient,
+      RelaySigner:RelaySigners,
       Utils:Utils,
     }
   }

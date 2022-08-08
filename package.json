@@ -1,6 +1,6 @@
 {
   "name": "hardhat-openzeppelin-defender",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Hardhat plugin openzeppelin defender",
   "author": "Danny Jesus Gonzalez Galicia",
   "license": "MIT",
@@ -25,7 +25,9 @@
     "build": "tsc",
     "watch": "tsc -w",
     "prepublishOnly": "npm run build",
-    "update:dependencies": "yarn add defender-admin-client && yarn add defender-autotask-client && yarn add defender-kvstore-client && yarn add defender-sentinel-client && yarn add defender-relay-client"
+    "publish:verdaccio": "npm publish --registry http://localhost:4873/",
+    "docker:run": "docker-compose --project-directory ./verdaccio up -d",
+    "docker:stop": "docker-compose --project-directory ./verdaccio stop"
   },
   "files": [
     "dist/src/",

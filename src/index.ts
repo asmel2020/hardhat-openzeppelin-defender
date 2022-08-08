@@ -1,45 +1,73 @@
-import { extendConfig, extendEnvironment } from "hardhat/config";
+import { extendConfig, extendEnvironment, subtask, task } from "hardhat/config";
 import { lazyObject } from "hardhat/plugins";
 import { HardhatConfig, HardhatUserConfig } from "hardhat/types";
-import AdminClients from "./OpenzeppelinDefender/AdminClient";
-
-// This import is needed to let the TypeScript compiler know that it should include your type
-// extensions in your npm package's types file.
 import "./type-extensions";
-import AutotaskClients from "./OpenzeppelinDefender/AutotaskClient";
-import RelayClients from "./OpenzeppelinDefender/RelayClient";
-import SentinelClients from "./OpenzeppelinDefender/SentinelClient";
+
+
+
+
+import {RelayClient} from 'defender-relay-client';
+import {AdminClient} from 'defender-admin-client';
+import {AutotaskClient} from "defender-autotask-client";
+import RelaySigners from "./OpenzeppelinDefender/RelaySigners";
+import { SentinelClient} from 'defender-sentinel-client';
+import { KeyValueStoreClient } from 'defender-kvstore-client';
 import Utils from "./OpenzeppelinDefender/Utils";
-import KvstoreClients from "./OpenzeppelinDefender/KvstoreClient";
 
 extendConfig(
-  (config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {
-  }
+  (config: HardhatConfig, userConfig: Readonly<HardhatUserConfig>) => {}
 );
 
 extendEnvironment((hre) => {
   hre.OpenzeppelinDefender = lazyObject(() => {
-    const Credential=hre.config.OpenzeppelinDefenderCredential
 
-    const AdminClient = new AdminClients(Credential);
+    const Credential = hre.config.OpenzeppelinDefenderCredential;
 
-    const AutoTaskClint = new AutotaskClients(Credential);
-
-    const RelayClient = new RelayClients(Credential);
-    
-    const SentinelClient = new SentinelClients(Credential);
-
-    const KvstoreClient = new KvstoreClients();
-
+    const AdminClients = new AdminClient(Credential);
+    const RelayClients = new RelayClient(Credential);
+    const RelaySigner = new RelaySigners()
+    const AutotaskClients = new AutotaskClient(Credential);
+    const SentinelClients = new SentinelClient(Credential);
+    const KeyValueStoreClients = new KeyValueStoreClient({path: './secret.json'});
     const Util = new Utils();
-    
+
     return {
-      AdminClient,
-      AutoTaskClint,
-      RelayClient,
-      SentinelClient,
-      KvstoreClient,
-      Utils: Util
+      AdminClient:AdminClients,
+      RelayClient:RelayClients,
+      RelaySigner,
+      AutotaskClient:AutotaskClients,
+      SentinelClient:SentinelClients,
+      KeyValueStoreClient:KeyValueStoreClients,
+      Utils: Util,
     };
   });
 });
+
+task("OpenzeppelinDefender", "Prints a greeting'")
+  .addOptionalParam("relay", "The greeting to print", undefined)
+  .addOptionalParam("autotask", "The greeting to print", undefined)
+  .setAction(async ({ relay, autotask }, hre, runSuper) => {
+    if (relay) {
+      console.log(await hre.run("relay", { params: relay }));
+    }
+
+    if (autotask) {
+      console.log(await hre.run("autotask", { params: autotask }));
+    }
+  });
+
+subtask("relay", "Prints a message")
+  .addParam("params", "The message to print")
+  .setAction(async ({ params }, hre) => {
+    if (params === "list") {
+      return hre.OpenzeppelinDefender.RelayClient.list();
+    }
+  });
+
+subtask("autotask", "Prints a message")
+  .addParam("params", "The message to print")
+  .setAction(async ({ params }, hre) => {
+    if (params === "list") {
+      return hre.OpenzeppelinDefender.AutotaskClient.list();
+    }
+  });
