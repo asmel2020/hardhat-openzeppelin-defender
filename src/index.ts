@@ -43,7 +43,7 @@ extendEnvironment((hre) => {
   });
 });
 
-task("OpenzeppelinDefender", "Prints a greeting'")
+/*task("OpenzeppelinDefender", "Prints a greeting'")
   .addOptionalParam("relay", "The greeting to print", undefined)
   .addOptionalParam("autotask", "The greeting to print", undefined)
   .setAction(async ({ relay, autotask }, hre, runSuper) => {
@@ -70,4 +70,4 @@ subtask("autotask", "Prints a message")
     if (params === "list") {
       return hre.OpenzeppelinDefender.AutotaskClient.list();
     }
-  });
+  });*/

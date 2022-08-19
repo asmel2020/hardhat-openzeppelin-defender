@@ -565,7 +565,6 @@ describe("Integration tests examples", function () {
         name: "Transfer",
         type: "event",
       };
-
       const result = this.hre.OpenzeppelinDefender.Utils.getAbiInterfaceParams(params);
       console.log(result)
       //return myToken
